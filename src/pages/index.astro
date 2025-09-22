@@ -1,9 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Character from '../components/character.astro';	
+import { string } from 'astro:schema';
+
+const selectcharacter = (name: string) => `./img/characters/${name}.png`;
 ---
 
 
-<Layout>
-	<h1 class="text-4xl font-bold flex justify-center items-center h-screen">
-		Hola, esta es una pagina de astro</h1>
+<Layout title="Mortal Kombat Selector">
+	<main class="relative flex justify-center items-center size-full h-screen bg-center bg-cover bg-no-repeat" 
+	style="background-image: url('./img/background.jpg');">
+
+	<div class="absolute button-10 left-10 w-[360px]">
+		<img src="./img/mortal_kombat_title.png" alt="">
+	</div>
+	<div class="absolute top-10 right-10 w-24">
+		<img src="./img/mk_11_logo.png" alt="">
+	</div>
+	<section class="w-full flex justify-center relative">
+		<Character characterImg={selectcharacter("scorpion")} characterName="Scorpion"/>
+	</section>
+	</main>
 </Layout>
