@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Character from '../components/character.astro';	
-import { string } from 'astro:schema';
-
-const selectcharacter = (name: string) => `./img/characters/${name}.png`;
+import { string } from "astro:schema";
+import selectcharacter from "../utils/selectCharacter";
+import PickerCharacter from '../components/PickerCharacter.astro';
+import { charactersData } from '../const/charactersData';
 ---
 
 
@@ -18,7 +19,16 @@ const selectcharacter = (name: string) => `./img/characters/${name}.png`;
 		<img src="./img/mk_11_logo.png" alt="">
 	</div>
 	<section class="w-full flex justify-center relative">
+		<characterinfo characterName="Scorpion" characterDescription="lorem ipsum dolor sit amet, 
+		consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+		  nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+		  mollit anim id est laborum."/>
 		<Character characterImg={selectcharacter("scorpion")} characterName="Scorpion"/>
+	</section>
+	<section>
+		<PickerCharacter Character={charactersData}/>
 	</section>
 	</main>
 </Layout>
